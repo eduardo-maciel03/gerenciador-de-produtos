@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CardComponent } from './components/card/card.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { ProductsService } from '../../shared/services/products.service';
+import { Product } from '../../shared/interfaces/product.interface';
 
 @Component({
   selector: 'app-list',
@@ -10,6 +12,15 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
+  products: Product[] = [];
 
+  productsService = inject(ProductsService)
+  router = inject(Router);
+
+  ngOnInit(): void {
+    this.productsService.getAll().subscribe((response) => {
+      this.products = response;
+    });
+  }
 }
