@@ -6,11 +6,12 @@ import { ProductsService } from '../../shared/services/products.service';
 import { Product } from '../../shared/interfaces/product.interface';
 import { ConfirmationDialogService } from '../../shared/services/confirmation-dialog.service';
 import { filter } from 'rxjs';
+import { NoItemsComponent } from './components/no-items/no-items.component';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [ CardComponent, RouterLink, MatButtonModule ],
+  imports: [ CardComponent, RouterLink, MatButtonModule, NoItemsComponent ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
