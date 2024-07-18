@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { ListComponent } from './features/list/list.component';
+import { getProduct } from './shared/resolvers/get-product.resolver';
 
 export const routes: Routes = [
   {
@@ -13,7 +14,10 @@ export const routes: Routes = [
   },
   {
     path: 'edit-product/:id',
-      loadComponent: () =>
+    resolve: {
+      product: getProduct
+    },
+    loadComponent: () =>
       import('./features/edit/edit.component').then((m) => m.EditComponent)
   }
 ];
