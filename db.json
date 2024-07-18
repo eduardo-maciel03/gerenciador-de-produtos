@@ -1,8 +1,8 @@
 {
   "products": [
     {
-      "id": "1",
-      "title": "Tênis"
+      "title": "Tênis",
+      "id": "1"
     },
     {
       "id": "2",
@@ -15,10 +15,6 @@
     {
       "id": "4",
       "title": "Moletom"
-    },
-    {
-      "id": "ac1e",
-      "title": ""
     }
   ]
 }

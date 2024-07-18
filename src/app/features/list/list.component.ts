@@ -1,9 +1,11 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CardComponent } from './components/card/card.component';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { ProductsService } from '../../shared/services/products.service';
 import { Product } from '../../shared/interfaces/product.interface';
+import { ConfirmationDialogService } from '../../shared/services/confirmation-dialog.service';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -12,19 +14,28 @@ import { Product } from '../../shared/interfaces/product.interface';
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
-export class ListComponent implements OnInit {
-  products: Product[] = [];
+export class ListComponent {
+  products = signal<Product[]>(inject(ActivatedRoute).snapshot.data['products']);
 
   productsService = inject(ProductsService)
   router = inject(Router);
-
-  ngOnInit(): void {
-    this.productsService.getAll().subscribe((response) => {
-      this.products = response;
-    });
-  }
+  confirmationDialog = inject(ConfirmationDialogService);
 
   onEdit(product: Product) {
     this.router.navigate(['/edit-product', product.id]);
+  }
+
+  onDelete(product: Product) {
+    this.confirmationDialog
+      .openDialog()
+      .pipe(filter((answer) => answer === true))
+      .subscribe(() => {
+        this.productsService.delete(product.id)
+          .subscribe(() => {
+            this.productsService.getAll().subscribe((products) => {
+              this.products.set(products);
+            });
+          });
+      });
   }
 }
