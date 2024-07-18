@@ -1,5 +1,9 @@
+<div class="button-container">
+  <a mat-flat-button color="primary" [routerLink]="['create-product']">Novo produto</a>
+</div>
+
 @for (product of products; track product.id) {
-  <div>
+  <div class="item-container">
     <app-card [product]="product"></app-card>
   </div>
 }
