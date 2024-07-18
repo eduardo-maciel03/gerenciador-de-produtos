@@ -1,10 +1,14 @@
 import { Routes } from '@angular/router';
 import { ListComponent } from './features/list/list.component';
 import { getProduct } from './shared/resolvers/get-product.resolver';
+import { getProducts } from './shared/resolvers/get-products.resolver';
 
 export const routes: Routes = [
   {
     path: '',
+    resolve: {
+      products: getProducts
+    },
     component: ListComponent
   },
   {
