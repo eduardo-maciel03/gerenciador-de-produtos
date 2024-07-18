@@ -1,9 +1,21 @@
 {
   "products": [
     {
-      "id": "e838",
-      "title": "Camiseta",
-      "price": "15",
+      "title": "Camiseta Vermelha",
+      "price": "35,90",
+      "stock": "1",
+      "id": "e838"
+    },
+    {
+      "title": "Tênis",
+      "price": "100",
+      "stock": "1",
+      "id": "009c"
+    },
+    {
+      "id": "84e2",
+      "title": "Jaqueta",
+      "price": "80",
       "stock": "1"
     }
   ]

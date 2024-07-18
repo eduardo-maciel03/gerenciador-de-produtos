@@ -49,12 +49,12 @@ export class FormComponent implements OnInit {
 
   validations(): boolean {
     if(this.form.get('title')?.hasError('required')) {
-      this.matSnackBar.open('Informe todos os campos obrigatórios *', 'Ok');
+      this.matSnackBar.open('Informe todos os campos obrigatórios (*)', 'Ok');
       return false;
     }
 
     if(this.form.get('price')?.hasError('required')) {
-      this.matSnackBar.open('Informe todos os campos obrigatórios *', 'Ok');
+      this.matSnackBar.open('Informe todos os campos obrigatórios (*)', 'Ok');
       return false;
     }
 
