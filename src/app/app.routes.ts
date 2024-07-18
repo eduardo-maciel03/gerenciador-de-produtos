@@ -5,5 +5,15 @@ export const routes: Routes = [
   {
     path: '',
     component: ListComponent
+  },
+  {
+    path: 'create-product',
+    loadComponent: () =>
+      import('./features/create/create.component').then((m) => m.CreateComponent)
+  },
+  {
+    path: 'edit-product/:id',
+      loadComponent: () =>
+      import('./features/edit/edit.component').then((m) => m.EditComponent)
   }
 ];
