@@ -1,7 +1,12 @@
 <mat-card appearance="outlined">
   <mat-card-header>
-    <mat-card-title class="title">{{ productTitle() }}</mat-card-title>
+    <mat-card-title class="color-text">{{ productTitle() }}</mat-card-title>
   </mat-card-header>
+  <mat-card-content>
+    <mat-label class="color-text">Preço: {{ productPrice() }}</mat-label>
+    <br />
+    <mat-label class="color-text">Estoque: {{ productStock() }}</mat-label>
+  </mat-card-content>
   <mat-card-actions>
     <button mat-button (click)="onEdit()">Editar</button>
     <button mat-button (click)="onDelete()">Deletar</button>

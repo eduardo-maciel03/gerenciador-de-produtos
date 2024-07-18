@@ -1,3 +1,22 @@
 {
-  "products": []
+  "products": [
+    {
+      "id": "d26c",
+      "title": "Teste",
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": "6758",
+      "title": "testando",
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": "5ce4",
+      "title": "testee",
+      "price": "",
+      "stock": ""
+    }
+  ]
 }
