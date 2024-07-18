@@ -1,22 +1,10 @@
 {
   "products": [
     {
-      "id": "d26c",
-      "title": "Teste",
-      "price": "",
-      "stock": ""
-    },
-    {
-      "id": "6758",
-      "title": "testando",
-      "price": "",
-      "stock": ""
-    },
-    {
-      "id": "5ce4",
-      "title": "testee",
-      "price": "",
-      "stock": ""
+      "id": "e838",
+      "title": "Camiseta",
+      "price": "15",
+      "stock": "1"
     }
   ]
 }

@@ -36,16 +36,28 @@ export class FormComponent implements OnInit {
   onSubmit() {
     const product = this.form.value as Product;
 
-    if(this.form.get('title')?.hasError('required') &&
-       this.form.get('price')?.hasError('required')) {
-      this.matSnackBar.open('Informe todos os campos obrigatórios *', 'Ok');
-      return;
+    const validate = this.validations();
+
+    if(validate === false) return;
+
+    if(product.stock === '') {
+      product.stock = '1';
     }
 
-    if(this.form.get('stock')?.value === null) {
-      product.stock = "1";
-    }
-    debugger
     this.save.emit(product);
+  }
+
+  validations(): boolean {
+    if(this.form.get('title')?.hasError('required')) {
+      this.matSnackBar.open('Informe todos os campos obrigatórios *', 'Ok');
+      return false;
+    }
+
+    if(this.form.get('price')?.hasError('required')) {
+      this.matSnackBar.open('Informe todos os campos obrigatórios *', 'Ok');
+      return false;
+    }
+
+    return true;
   }
 }
