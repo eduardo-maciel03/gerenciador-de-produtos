@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Tênis"
+    },
+    {
+      "id": "2",
+      "title": "Camiseta"
+    },
+    {
+      "id": "3",
+      "title": "Boné"
+    },
+    {
+      "id": "4",
+      "title": "Moletom"
+    }
+  ]
+}
